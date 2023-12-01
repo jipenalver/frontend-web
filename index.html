@@ -18,6 +18,8 @@
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
       crossorigin="anonymous"
     ></script>
+
+    <script type="module" src="js/auth/login.js"></script>
   </head>
   <body class="bg-secondary">
     <div id="layoutAuthentication">
@@ -32,50 +34,50 @@
                     <h3 class="text-center font-weight-light my-4">Login</h3>
                   </div>
                   <div class="card-body">
-                    <form>
+                    <!-- Notifications -->
+                    <div class="alert alert-success d-none" role="alert"></div>
+                    <div class="alert alert-danger d-none" role="alert"></div>
+                    <!-- Login Form -->
+                    <form id="form_login">
                       <div class="form-floating mb-3">
+                        <!-- Email Field -->
                         <input
                           class="form-control"
-                          id="inputEmail"
+                          id="email"
                           type="email"
-                          placeholder="name@example.com"
+                          name="email"
+                          placeholder="Email Address"
+                          required
                         />
-                        <label for="inputEmail">Email address</label>
+                        <label for="email">Email Address</label>
                       </div>
+
                       <div class="form-floating mb-3">
+                        <!-- Password Field -->
                         <input
                           class="form-control"
-                          id="inputPassword"
+                          id="password"
                           type="password"
+                          name="password"
                           placeholder="Password"
+                          required
                         />
-                        <label for="inputPassword">Password</label>
+                        <label for="password">Password</label>
                       </div>
-                      <div class="form-check mb-3">
-                        <input
-                          class="form-check-input"
-                          id="inputRememberPassword"
-                          type="checkbox"
-                          value=""
-                        />
-                        <label
-                          class="form-check-label"
-                          for="inputRememberPassword"
-                          >Remember Password</label
-                        >
-                      </div>
+
                       <div class="d-grid mt-4 mb-0">
-                        <a
-                          class="btn btn-dark btn-block"
-                          href="presentation.html"
-                          >Login</a
+                        <button
+                          class="btn btn-dark btn-block d-flex align-items-center justify-content-center"
+                          type="submit"
                         >
+                          Login
+                        </button>
                       </div>
                     </form>
                   </div>
                   <div class="card-footer text-center py-3">
                     <div class="small">
-                      <a href="register.html">Need an account? Sign up!</a>
+                      Need an account? <a href="register.html">Sign up!</a>
                     </div>
                   </div>
                 </div>
@@ -85,6 +87,7 @@
           </div>
         </main>
       </div>
+
       <!-- Footer -->
       <div id="layoutAuthentication_footer">
         <footer class="py-4 bg-dark mt-auto">
@@ -104,6 +107,5 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/scripts.js"></script>
   </body>
 </html>
