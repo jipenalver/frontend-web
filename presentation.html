@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Smartphone Controlled Presentation Web App | Dashboard</title>
+
+    <link rel="icon" type="image/x-icon" href="/assets/img/logo.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="sb-nav-fixed">
+    <!-- Top Navigation -->
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-3" href="index.html">SCP Web App</a>
+      <!-- Sidebar Toggle-->
+      <button
+        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+        id="sidebarToggle"
+        href="#!"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Navbar Search-->
+      <form
+        class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+      >
+        <!-- <div class="input-group">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Search for..."
+            aria-label="Search for..."
+            aria-describedby="btnNavbarSearch"
+          />
+          <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div> -->
+      </form>
+      <!-- Navbar-->
+      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fas fa-user fa-fw"></i
+          ></a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <!-- <li><hr class="dropdown-divider" /></li> -->
+            <li><a class="dropdown-item" href="#!">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- End of Top Navigation -->
+
+    <div id="layoutSidenav">
+      <!-- Side Navigation -->
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <a class="nav-link" href="dashboard.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-gauge"></i>
+                </div>
+                Dashboard
+              </a>
+              <div class="sb-sidenav-menu-heading">Pages</div>
+              <a class="nav-link active" href="presentation.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-file-powerpoint"></i>
+                </div>
+                Presentation
+              </a>
+              <a class="nav-link" href="slides.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-note-sticky"></i>
+                </div>
+                Slides
+              </a>
+            </div>
+          </div>
+          <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            Start Bootstrap
+          </div>
+        </nav>
+      </div>
+      <!-- End of Side Navigation -->
+
+      <div
+        id="layoutSidenav_content"
+        style="background-color: black; color: white"
+      >
+        <main>
+          <!-- Content -->
+          <div class="container-fluid px-4">
+            <h1 class="mt-4">Presentation</h1>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item">System</li>
+              <li class="breadcrumb-item active">Presentation</li>
+            </ol>
+            <div class="row">
+              <div class="col-sm-12">
+                <div
+                  id="carouselExampleCaptions"
+                  class="carousel slide"
+                  data-bs-ride="false"
+                >
+                  <div
+                    class="carousel-indicators d-none d-lg-block text-center"
+                  >
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="0"
+                      class="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="1"
+                      aria-label="Slide 2"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="2"
+                      aria-label="Slide 3"
+                    ></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img
+                        src="assets/img/blank-black.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                      <div class="carousel-caption">
+                        <h1>First slide label</h1>
+                        <p>
+                          Some representative placeholder content for the first
+                          slide.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="assets/img/blank-black.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                      <div class="carousel-caption">
+                        <h1>Second slide label</h1>
+                        <p>
+                          Some representative placeholder content for the second
+                          slide.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="assets/img/blank-black.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                      <div class="carousel-caption">
+                        <h1>Third slide label</h1>
+                        <p>
+                          Some representative placeholder content for the third
+                          slide.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="carousel-control-prev d-none d-md-block"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next d-none d-md-block"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Content -->
+        </main>
+        <!-- Footer -->
+        <footer class="py-4 bg-dark mt-auto">
+          <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-center small">
+              <div class="text-white">
+                Copyright &copy; Smartphone Controlled Presentation Web App 2023
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
