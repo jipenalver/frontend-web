@@ -20,7 +20,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="js/auth/register.js" defer></script>
+    <script src="js/auth/register.js" type="module"></script>
   </head>
   <body class="bg-secondary">
     <div id="layoutAuthentication">
@@ -37,6 +37,9 @@
                     </h3>
                   </div>
                   <div class="card-body">
+                    <!-- Notifications -->
+                    <div class="alert alert-success d-none" role="alert"></div>
+                    <div class="alert alert-danger d-none" role="alert"></div>
                     <!-- Registration Form -->
                     <form id="form_register">
                       <div class="row mb-3">
@@ -119,7 +122,10 @@
                       </div>
                       <div class="mt-4 mb-0">
                         <div class="d-grid">
-                          <button class="btn btn-dark btn-block" type="submit">
+                          <button
+                            class="btn btn-dark btn-block d-flex align-items-center justify-content-center"
+                            type="submit"
+                          >
                             Create Account
                           </button>
                         </div>
