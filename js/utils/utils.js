@@ -1,3 +1,8 @@
+import { setRouter } from "../router/router.js";
+
+// Set Router
+setRouter();
+
 // Backend URL
 const backendURL = "http://backend.test";
 
