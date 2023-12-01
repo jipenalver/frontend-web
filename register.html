@@ -37,65 +37,81 @@
                     </h3>
                   </div>
                   <div class="card-body">
-                    <form>
+                    <!-- Registration Form -->
+                    <form id="form_register">
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <div class="form-floating mb-3 mb-md-0">
+                            <!-- First Name Field -->
                             <input
                               class="form-control"
-                              id="inputLastName"
+                              id="firstname"
+                              name="firstname"
                               type="text"
                               placeholder="First Name"
+                              required
                             />
-                            <label for="inputLastName">First Name</label>
+                            <label for="firstname">First Name</label>
                           </div>
                         </div>
 
                         <div class="col-md-6">
                           <div class="form-floating mb-md-0">
+                            <!-- Last Name Field -->
                             <input
                               class="form-control"
-                              id="inputLastName"
+                              id="lastname"
+                              name="lastname"
                               type="text"
                               placeholder="Last Name"
+                              required
                             />
-                            <label for="inputLastName">Last Name</label>
+                            <label for="lastname">Last Name</label>
                           </div>
                         </div>
                       </div>
 
                       <div class="form-floating mb-3">
+                        <!-- Email Field -->
                         <input
                           class="form-control"
-                          id="inputEmail"
+                          id="email"
+                          name="email"
                           type="email"
                           placeholder="Email Address"
+                          required
                         />
-                        <label for="inputEmail">Email Address</label>
+                        <label for="email">Email Address</label>
                       </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <div class="form-floating mb-3 mb-md-0">
+                            <!-- Password Field -->
                             <input
                               class="form-control"
-                              id="inputPassword"
+                              id="password"
+                              name="password"
                               type="password"
                               placeholder="Password"
+                              required
                             />
-                            <label for="inputPassword">Password</label>
+                            <label for="password">Password</label>
                           </div>
                         </div>
 
                         <div class="col-md-6">
                           <div class="form-floating mb-3 mb-md-0">
+                            <!-- Password Confirmation -->
                             <input
                               class="form-control"
-                              id="inputPasswordConfirm"
+                              id="password_confirmation"
+                              name="password_confirmation"
                               type="password"
                               placeholder="Confirm password"
+                              required
                             />
-                            <label for="inputPasswordConfirm"
+                            <label for="password_confirmation"
                               >Confirm Password</label
                             >
                           </div>
@@ -103,9 +119,9 @@
                       </div>
                       <div class="mt-4 mb-0">
                         <div class="d-grid">
-                          <a class="btn btn-dark btn-block" href="index.html"
-                            >Create Account</a
-                          >
+                          <button class="btn btn-dark btn-block" type="submit">
+                            Create Account
+                          </button>
                         </div>
                       </div>
                     </form>
