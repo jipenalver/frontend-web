@@ -19,7 +19,7 @@ btn_logout.onclick = async () => {
     // Clear Tokens
     localStorage.clear();
 
-    successNotification("Logout Successful");
+    successNotification("Logout Successful.");
     // Redirect Page
     window.location.pathname = "/";
   }

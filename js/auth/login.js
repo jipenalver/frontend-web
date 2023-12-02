@@ -4,7 +4,7 @@ import {
   errorNotification,
 } from "../utils/utils.js";
 
-// Form Register
+// Form Login
 const form_login = document.getElementById("form_login");
 
 form_login.onsubmit = async (e) => {
@@ -21,7 +21,7 @@ form_login.onsubmit = async (e) => {
   // Get Values of Form (input, textarea, select) set it as form-data
   const formData = new FormData(form_login);
 
-  // Fetch API user register endpoint
+  // Fetch API User Login eEndpoint
   const response = await fetch(backendURL + "/api/login", {
     method: "POST",
     headers: {
