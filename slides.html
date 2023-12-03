@@ -115,7 +115,141 @@
             <div class="row">
               <!-- Modal Btn and Form -->
               <div class="col-sm-12">
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="form_modal"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                          Slides Form
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <!-- Slides Form -->
+                      <form id="form_slides">
+                        <!-- Modal Body -->
+                        <div class="modal-body">
+                          <!-- Slide Name Field -->
+                          <div class="row mb-3">
+                            <div class="col-sm-12">
+                              <input
+                                class="form-control"
+                                type="text"
+                                name="carousel_name"
+                                id="carousel_name"
+                                placeholder="Slide Name"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <!-- Image File Field -->
+                          <div class="row mb-3">
+                            <div class="col-sm-12">
+                              <input
+                                class="form-control"
+                                type="file"
+                                name="image_path"
+                                accept="image/x-png,image/gif,image/jpeg"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <!-- Description Field -->
+                          <div class="row mb-3">
+                            <div class="col-sm-12">
+                              <textarea
+                                class="form-control"
+                                name="description"
+                                id="description"
+                                placeholder="Description"
+                                required
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Modal Footer -->
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button class="btn btn-primary w-25" type="submit">
+                            Submit
+                          </button>
+                        </div>
+                      </form>
+                      <!-- End Slides Form -->
+                    </div>
+                  </div>
+                </div>
+                <!-- End Modal -->
+
+                <!-- Search Form -->
+                <form id="form_search">
+                  <div class="row">
+                    <div class="col-sm-8 mb-1">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="keyword"
+                        placeholder="Search Keyword"
+                      />
+                    </div>
+                    <div class="col-sm-2 d-flex justify-content-center mb-1">
+                      <button class="btn btn-primary w-100" type="submit">
+                        Search
+                      </button>
+                    </div>
+                    <div class="col-sm-2 d-flex justify-content-center mb-1">
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary w-100"
+                        data-bs-toggle="modal"
+                        data-bs-target="#form_modal"
+                      >
+                        Add Slide
+                      </button>
+                      <!-- End Button trigger modal  -->
+                    </div>
+                  </div>
+                </form>
+
                 <hr />
+              </div>
+            </div>
+
+            <br />
+
+            <!-- Notifications -->
+            <div class="alert alert-success d-none" role="alert"></div>
+            <div class="alert alert-danger d-none" role="alert"></div>
+
+            <!-- Get All Data -->
+            <div class="row pb-5" id="get_data">
+              <div
+                class="col-sm-12 d-flex justify-content-center align-items-center"
+              >
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <b class="ms-2">Loading Data...</b>
               </div>
             </div>
           </div>
