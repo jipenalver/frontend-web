@@ -2,8 +2,13 @@ import {
   backendURL,
   successNotification,
   errorNotification,
+  getLoggedUser,
 } from "../utils/utils.js";
 
+// Get Logged User Info
+getLoggedUser();
+
+// Logout Btn
 const btn_logout = document.getElementById("btn_logout");
 btn_logout.onclick = async () => {
   // Access Logout API Endpoint
