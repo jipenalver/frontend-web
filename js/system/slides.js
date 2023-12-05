@@ -73,9 +73,9 @@ async function getDatas() {
     //   element.addEventListener("click", editAction);
     // });
 
-    // document.querySelectorAll("#btn_delete").forEach((element) => {
-    //   element.addEventListener("click", deleteAction);
-    // });
+    document.querySelectorAll("#btn_delete").forEach((element) => {
+      element.addEventListener("click", deleteAction);
+    });
   }
   // Get response if 400+ or 500+ status code
   else {
@@ -144,4 +144,43 @@ form_slides.onsubmit = async (e) => {
   document.querySelector("#form_slides button[type='submit']").disabled = false;
   document.querySelector("#form_slides button[type='submit']").innerHTML =
     "Submit";
+};
+
+// Delete Functionality
+const deleteAction = async (e) => {
+  // Use JS Confirm to ask for confirmation; You can use bootstrap modal instead of this
+  if (confirm("Are you sure you want to delete?")) {
+    // Get Id from data-id attrbute within the btn_delete anchor tag
+    const id = e.target.getAttribute("data-id");
+
+    // Background red the card that you want to delete
+    document.querySelector(`.card[data-id="${id}"]`).style.backgroundColor =
+      "red";
+
+    // Fetch API Carousel Item Delete Endpoint
+    const response = await fetch(backendURL + "/api/carousel/" + id, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    });
+
+    // Get response if 200-299 status code
+    if (response.ok) {
+      // Uncomment for debugging purpose
+      // const json = await response.json();
+      // console.log(json);
+      successNotification("Successfully deleted slide.", 10);
+
+      // Remove the Card from the list
+      document.querySelector(`.card[data-id="${id}"]`).remove();
+    } else {
+      errorNotification("Unable to delete!", 10);
+
+      // Background white the card if unable to delete
+      document.querySelector(`.card[data-id="${id}"]`).style.backgroundColor =
+        "white";
+    }
+  }
 };
