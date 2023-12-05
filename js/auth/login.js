@@ -21,7 +21,7 @@ form_login.onsubmit = async (e) => {
   // Get Values of Form (input, textarea, select) set it as form-data
   const formData = new FormData(form_login);
 
-  // Fetch API User Login eEndpoint
+  // Fetch API User Login Endpoint
   const response = await fetch(backendURL + "/api/login", {
     method: "POST",
     headers: {

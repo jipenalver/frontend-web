@@ -142,6 +142,8 @@
                       <form id="form_slides">
                         <!-- Modal Body -->
                         <div class="modal-body">
+                          <!-- User Id Field -->
+                          <input type="hidden" name="user_id" id="user_id" />
                           <!-- Slide Name Field -->
                           <div class="row mb-3">
                             <div class="col-sm-12">
@@ -183,13 +185,17 @@
                         <!-- Modal Footer -->
                         <div class="modal-footer">
                           <button
+                            id="modal_close"
                             type="button"
                             class="btn btn-secondary"
                             data-bs-dismiss="modal"
                           >
                             Close
                           </button>
-                          <button class="btn btn-primary w-25" type="submit">
+                          <button
+                            class="btn btn-primary w-25 d-flex align-items-center justify-content-center"
+                            type="submit"
+                          >
                             Submit
                           </button>
                         </div>

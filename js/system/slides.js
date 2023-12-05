@@ -13,7 +13,7 @@ getDatas();
 
 async function getDatas() {
   // Get Carousel API Endpoint
-  const response = await fetch("http://backend.test/api/carousel", {
+  const response = await fetch(backendURL + "/api/carousel", {
     headers: {
       Accept: "application/json",
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -34,7 +34,7 @@ async function getDatas() {
 
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img src="${element.image_path}" width="100%" height="225px">
+                                    <img src="${backendURL}/storage/${element.image_path}" width="100%" height="225px">
                                 </div>
 
                                 <div class="col-sm-8">
@@ -82,3 +82,66 @@ async function getDatas() {
     errorNotification("HTTP-Error: " + response.status);
   }
 }
+
+// Submit Form
+const form_slides = document.getElementById("form_slides");
+
+form_slides.onsubmit = async (e) => {
+  e.preventDefault();
+
+  // Disable Button
+  document.querySelector("#form_slides button[type='submit']").disabled = true;
+  document.querySelector(
+    "#form_slides button[type='submit']"
+  ).innerHTML = `<div class="spinner-border me-2" role="status">
+                      </div>
+                      <span>Loading...</span>`;
+
+  // Get Values of Form (input, textarea, select) set it as form-data
+  const formData = new FormData(form_slides);
+
+  // Check key/value pairs of FormData, uncomment to debug
+  // for (let [name, value] of formData) {
+  //   console.log(`${name} = ${value}`); // key1 = value1, then key2 = value2
+  // }
+
+  // Fetch API Carousel Item Store Endpoint
+  const response = await fetch(backendURL + "/api/carousel", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+    body: formData,
+  });
+
+  // Get response if 200-299 status code
+  if (response.ok) {
+    const json = await response.json();
+    console.log(json);
+
+    // Reset Form
+    form_slides.reset();
+
+    successNotification("Successfully created slide.", 10);
+
+    // Close Modal Form
+    document.getElementById("modal_close").click();
+
+    // Reload Page
+    getDatas();
+  }
+  // Get response if 422 status code
+  else if (response.status == 422) {
+    const json = await response.json();
+
+    // Close Modal Form
+    document.getElementById("modal_close").click();
+
+    errorNotification(json.message, 10);
+  }
+
+  document.querySelector("#form_slides button[type='submit']").disabled = false;
+  document.querySelector("#form_slides button[type='submit']").innerHTML =
+    "Submit";
+};

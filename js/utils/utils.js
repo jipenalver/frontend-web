@@ -22,6 +22,10 @@ async function getLoggedUser() {
 
     document.getElementById("user_logged").innerHTML =
       json.firstname + " " + json.lastname;
+
+    if (document.getElementById("user_id")) {
+      document.getElementById("user_id").value = json.id;
+    }
   }
   // Get response if 400 or 500 status code
   else {
