@@ -171,6 +171,7 @@ const deleteAction = async (e) => {
       // Uncomment for debugging purpose
       // const json = await response.json();
       // console.log(json);
+
       successNotification("Successfully deleted slide.", 10);
 
       // Remove the Card from the list
