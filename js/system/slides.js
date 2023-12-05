@@ -69,10 +69,12 @@ async function getDatas() {
     // Use the container to display the fetch data
     document.getElementById("get_data").innerHTML = container;
 
-    // document.querySelectorAll("#btn_edit").forEach((element) => {
-    //   element.addEventListener("click", editAction);
-    // });
+    // Assign click event on Edit Btns
+    document.querySelectorAll("#btn_edit").forEach((element) => {
+      element.addEventListener("click", editAction);
+    });
 
+    // Assign click event on Delete Btns
     document.querySelectorAll("#btn_delete").forEach((element) => {
       element.addEventListener("click", deleteAction);
     });
@@ -83,7 +85,7 @@ async function getDatas() {
   }
 }
 
-// Submit Form
+// Submit Form Functionality; This is for Create and Update
 const form_slides = document.getElementById("form_slides");
 
 form_slides.onsubmit = async (e) => {
@@ -100,30 +102,57 @@ form_slides.onsubmit = async (e) => {
   // Get Values of Form (input, textarea, select) set it as form-data
   const formData = new FormData(form_slides);
 
-  // Check key/value pairs of FormData, uncomment to debug
+  // Check key/value pairs of FormData; Uncomment to debug
   // for (let [name, value] of formData) {
   //   console.log(`${name} = ${value}`); // key1 = value1, then key2 = value2
   // }
 
-  // Fetch API Carousel Item Store Endpoint
-  const response = await fetch(backendURL + "/api/carousel", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      Authorization: "Bearer " + localStorage.getItem("token"),
-    },
-    body: formData,
-  });
+  let response;
+  // Check if for_update_id is empty, if empty then it's create, else it's update
+  if (for_update_id == "") {
+    // Fetch API Carousel Item Store Endpoint
+    response = await fetch(backendURL + "/api/carousel", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: formData,
+    });
+  }
+  // for Update
+  else {
+    // Add Method Spoofing to cater Image upload coz you are using FormData
+    formData.append("_method", "PUT");
+
+    // Fetch API Carousel Item Update Endpoint
+    response = await fetch(backendURL + "/api/carousel/" + 10, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: formData,
+    });
+  }
 
   // Get response if 200-299 status code
   if (response.ok) {
-    const json = await response.json();
-    console.log(json);
+    // Uncomment for debugging purpose
+    // const json = await response.json();
+    // console.log(json);
 
     // Reset Form
     form_slides.reset();
+    // Always reset for_update_id to empty string
+    for_update_id = "";
 
-    successNotification("Successfully created slide.", 10);
+    successNotification(
+      "Successfully " +
+        (for_update_id == "" ? "created" : "updated") +
+        " slide.",
+      10
+    );
 
     // Close Modal Form
     document.getElementById("modal_close").click();
@@ -176,12 +205,65 @@ const deleteAction = async (e) => {
 
       // Remove the Card from the list
       document.querySelector(`.card[data-id="${id}"]`).remove();
-    } else {
+    }
+    // Get response if 400+ or 500+
+    else {
       errorNotification("Unable to delete!", 10);
 
       // Background white the card if unable to delete
       document.querySelector(`.card[data-id="${id}"]`).style.backgroundColor =
         "white";
     }
+  }
+};
+
+// Update Functionality
+const editAction = async (e) => {
+  // Get Id from data-id attrbute within the btn_edit anchor tag
+  const id = e.target.getAttribute("data-id");
+
+  // Show Functionality function call
+  showData(id);
+
+  // Show Modal Form
+  document.getElementById("modal_show").click();
+};
+
+// Storage of Id of chosen data to update
+let for_update_id = "";
+
+// Show Functionality
+const showData = async (id) => {
+  // Background yellow the card that you want to delete
+  document.querySelector(`.card[data-id="${id}"]`).style.backgroundColor =
+    "yellow";
+
+  // Fetch API Carousel Item Show Endpoint
+  const response = await fetch(backendURL + "/api/carousel/" + id, {
+    headers: {
+      Accept: "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  });
+
+  // Get response if 200-299 status code
+  if (response.ok) {
+    const json = await response.json();
+    // console.log(json);
+
+    // Store id to a variable; id will be utilize for update
+    for_update_id = json.carousel_item_id;
+
+    // Display json response to Form tags; make sure to set id attrbute on tags (input, textarea, select)
+    document.getElementById("carousel_name").value = json.carousel_name;
+    document.getElementById("description").value = json.description;
+
+    // Change Button Text using textContent; either innerHTML or textContent is fine here
+    document.querySelector("#form_slides button[type='submit']").textContent =
+      "Update Info";
+  }
+  // Get response if 400+ or 500+
+  else {
+    errorNotification("Unable to show!", 10);
   }
 };

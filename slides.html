@@ -164,7 +164,7 @@
                                 class="form-control"
                                 type="file"
                                 name="image_path"
-                                accept="image/x-png,image/gif,image/jpeg"
+                                accept="image/*"
                                 required
                               />
                             </div>
@@ -225,6 +225,7 @@
                     <div class="col-sm-2 d-flex justify-content-center mb-1">
                       <!-- Button trigger modal -->
                       <button
+                        id="modal_show"
                         type="button"
                         class="btn btn-primary w-100"
                         data-bs-toggle="modal"
