@@ -37,6 +37,9 @@ form_login.onsubmit = async (e) => {
     // Store Token
     localStorage.setItem("token", json.token);
 
+    // Store Role
+    localStorage.setItem("role", json.user.role);
+
     form_login.reset();
 
     successNotification("Successfully login account.");

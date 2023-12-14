@@ -16,7 +16,11 @@ function setRouter() {
         window.location.pathname = "/";
       }
       break;
-
+    // For Admin Users only; redirect to /dashboard
+    case "/users.html":
+      if (localStorage.getItem("role") != "Admin") {
+        window.location.pathname = "/dashboard.html";
+      }
     default:
       break;
   }

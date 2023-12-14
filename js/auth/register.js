@@ -21,6 +21,9 @@ form_register.onsubmit = async (e) => {
   // Get Values of Form (input, textarea, select) set it as form-data
   const formData = new FormData(form_register);
 
+  // Add User Role to those who registered
+  formData.append("role", "User");
+
   // Fetch API User Register Endpoint
   const response = await fetch(backendURL + "/api/user", {
     method: "POST",
