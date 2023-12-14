@@ -24,7 +24,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script type="module" src="js/system/presentation.js"></script>
+    <script type="module" src="js/system/dashboard.js"></script>
     <script src="js/utils/scripts.js" defer></script>
   </head>
   <body class="sb-nav-fixed">
@@ -61,7 +61,9 @@
             aria-labelledby="navbarDropdown"
           >
             <!-- <li><hr class="dropdown-divider" /></li> -->
-            <li><a class="dropdown-item" href="#!">Logout</a></li>
+            <li>
+              <a class="dropdown-item" href="#" id="btn_logout">Logout</a>
+            </li>
           </ul>
         </li>
       </ul>
@@ -85,7 +87,7 @@
               <div id="nav_admin_pages"></div>
 
               <div class="sb-sidenav-menu-heading">Pages</div>
-              <a class="nav-link active" href="presentation.html">
+              <a class="nav-link" href="presentation.html">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-file-powerpoint"></i>
                 </div>
@@ -107,81 +109,23 @@
       </div>
       <!-- End of Side Navigation -->
 
-      <div
-        id="layoutSidenav_content"
-        style="background-color: black; color: white"
-      >
+      <div id="layoutSidenav_content">
         <main>
           <!-- Content -->
           <div class="container-fluid px-4">
-            <h1 class="mt-4">Presentation</h1>
+            <h1 class="mt-4">Users Management</h1>
             <ol class="breadcrumb mb-4">
               <li class="breadcrumb-item">System</li>
-              <li class="breadcrumb-item active">Presentation</li>
+              <li class="breadcrumb-item active">Users</li>
             </ol>
             <div class="row">
-              <div class="col-sm-12">
-                <!-- Notifications -->
-                <div class="alert alert-success d-none" role="alert"></div>
-                <div class="alert alert-danger d-none" role="alert"></div>
-
-                <!-- Carousel -->
-                <div
-                  id="carouselExampleCaptions"
-                  class="carousel slide"
-                  data-bs-ride="false"
-                >
-                  <!-- Display Indicators -->
-                  <div
-                    class="carousel-indicators d-none d-lg-block text-center"
-                    id="get_indicators"
-                  ></div>
-
-                  <!-- Display Slides -->
-                  <div class="carousel-inner" id="get_data">
-                    <div
-                      class="col-sm-12 d-flex justify-content-center align-items-center"
-                    >
-                      <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                      </div>
-                      <b class="ms-2">Loading Data...</b>
-                    </div>
-                  </div>
-
-                  <!-- Previous Button -->
-                  <button
-                    class="carousel-control-prev d-none d-md-block"
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      class="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <!-- Next Button -->
-                  <button
-                    class="carousel-control-next d-none d-md-block"
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next"
-                  >
-                    <span
-                      class="carousel-control-next-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-              </div>
+              <!-- Notifications -->
+              <div class="alert alert-success d-none" role="alert"></div>
+              <div class="alert alert-danger d-none" role="alert"></div>
             </div>
           </div>
           <!-- End of Content -->
         </main>
-
         <!-- Footer -->
         <footer class="py-4 bg-dark mt-auto">
           <div class="container-fluid px-4">

@@ -35,6 +35,21 @@ async function getLoggedUser() {
   }
 }
 
+// Show Admin Pages Navigation
+function showNavAdminPages() {
+  if (localStorage.getItem("role") == "Admin") {
+    document.getElementById(
+      "nav_admin_pages"
+    ).innerHTML = `<div class="sb-sidenav-menu-heading">Admin Pages</div>
+        <a class="nav-link active" href="users.html">
+          <div class="sb-nav-link-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          Users
+        </a>`;
+  }
+}
+
 // Notifications
 function successNotification(message, seconds = 0) {
   document.querySelector(".alert-success").classList.remove("d-none");
@@ -62,4 +77,10 @@ function errorNotification(message, seconds = 0) {
   }
 }
 
-export { backendURL, successNotification, errorNotification, getLoggedUser };
+export {
+  backendURL,
+  showNavAdminPages,
+  successNotification,
+  errorNotification,
+  getLoggedUser,
+};

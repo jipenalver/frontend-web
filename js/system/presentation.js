@@ -1,11 +1,15 @@
 import {
   backendURL,
+  showNavAdminPages,
   errorNotification,
   getLoggedUser,
 } from "../utils/utils.js";
 
 // Get Logged User Info
 getLoggedUser();
+
+// Get Admin Pages
+showNavAdminPages();
 
 // Get All Data
 getDatas();

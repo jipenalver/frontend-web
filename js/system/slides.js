@@ -1,5 +1,6 @@
 import {
   backendURL,
+  showNavAdminPages,
   successNotification,
   errorNotification,
   getLoggedUser,
@@ -7,6 +8,9 @@ import {
 
 // Get Logged User Info
 getLoggedUser();
+
+// Get Admin Pages
+showNavAdminPages();
 
 // Get All Data
 getDatas();
