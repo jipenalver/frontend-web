@@ -290,7 +290,7 @@ let for_update_id = "";
 
 // Show Functionality
 const showData = async (id) => {
-  // Background yellow the card that you want to delete
+  // Background yellow the card that you want to show
   document.querySelector(`.card[data-id="${id}"]`).style.backgroundColor =
     "yellow";
 
@@ -321,6 +321,10 @@ const showData = async (id) => {
   // Get response if 400+ or 500+
   else {
     errorNotification("Unable to show!", 10);
+
+    // Background white the card if unable to show
+    document.querySelector(`.card[data-id="${id}"]`).style.backgroundColor =
+      "white";
   }
 };
 
